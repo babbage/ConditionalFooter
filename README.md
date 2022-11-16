@@ -1,10 +1,12 @@
 # ConditionalFooter
 
-In SwiftUI, it is sometimes desirable to toggle view content based on the [editMode](https://developer.apple.com/documentation/swiftui/editmode) environment value. This repository demonstrates two methods of doing this for a List footer. One method (GoodListView) conditionally sets the string inside a Text element to be an empty string, while another (BadListView) just conditionally adds the view only when a condition is met. In the case of this example, these view states are toggled based on the EditMode status of the view.
+In SwiftUI, it is sometimes desirable to toggle view content, e.g., based on the [editMode](https://developer.apple.com/documentation/swiftui/editmode) environment value. This sample project demonstrates two problems, including a crashing bug, when doing this with a conditional View within a Section, and for a List footer. 
 
-This repository demonstates that setting such views conditionally results in janky animation when transitioning between the two states. However, GoodListView shows that if a Text view is still present within a Section footer, simply set with an empty string, it results in undesirable additional padding between Sections within a sectioned list.
+One method (GoodListView) conditionally sets the string inside a Text element to be an empty string, while another (BadListView) just conditionally adds the view only when a condition is met. In the case of this example, these view states are toggled based on the EditMode status of the view.
 
-Furthermore, if there is both a conditional view within a Section (in this repository, the AddItemRow views) _plus_ there is a conditionally displayed footer on the Section, in iOS 16.2 beta 2 toggling between these states casuses an application crash from within a SwiftUI-created collection view when the conditional views are removed from the view. (This crash has been produced on an iPhone XR running iOS 16.2 beta 2. As there is no iOS 16.2 simulator available to third party developers, it is not known if the crash also occurs in the iOS simulator.)
+The sample project demonstrates that setting such views conditionally results in janky animation when transitioning between the two states. However, GoodListView shows that if a Text view is still present within a Section footer, simply set with an empty string, it results in undesirable additional padding between Sections within a sectioned list.
+
+Furthermore, if there is both a conditional view within a Section (in this repository, the AddItemRow views) _plus_ there is a conditionally displayed footer on the Section, in iOS 16.2 beta 2 toggling between these states causes an application crash from within a SwiftUI-created collection view when the conditional views are removed from the view. (This crash has been produced on an iPhone XR running iOS 16.2 beta 2. As there is no iOS 16.2 simulator available to third party developers, it is not known if the crash also occurs in the iOS simulator.)
 
 Steps to reproduce the issue:
 1. In iOS 16.2 beta 2, launch the ConditionalFooter sample project
