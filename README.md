@@ -14,12 +14,12 @@ Steps to reproduce the issue:
 3. Click on Done to exit edit mode. The app will crash.
 
 Alternative code example:
-0. In the ContentView, comment out BadListView and uncomment AnotherBadListView.
-1-3. Follow steps as per above. Replacing the conditional view with an EmptyView() when not present does not change the observed behavior.
+1. In the ContentView, comment out BadListView and uncomment AnotherBadListView.
+2. Follow steps as per above. Replacing the conditional view with an EmptyView() when not present does not change the observed behavior.
 
 Partial fix that also has a problem:
-0. In the ContentView, comment out both BadListView and AnotherBadListView.
-1-3. Follow steps as per above. Replacing the text content of the Text in the GoodListView Section footer shows the content contionally as desired, and animates the changes to the rest of the Section smoothly. However, an issue remains that when not in edit mode there is a larger padding after the GoodListView section than there is between other sections in the content. Is there a work-around for this symptom? 
+1. In the ContentView, comment out both BadListView and AnotherBadListView.
+2. Follow steps as per above. Replacing the text content of the Text in the GoodListView Section footer shows the content contionally as desired, and animates the changes to the rest of the Section smoothly. However, an issue remains that when not in edit mode there is a larger padding after the GoodListView section than there is between other sections in the content. Is there a work-around for this symptom? 
 
 What is expected to happen:
 There is a mechanism to have conditional views within a Section, and to have a conditional footer after a Section. When toggling these views on and off on entering and existing edit mode, the animation should be smooth and the app should not crash. When the footer is not visible, it should be possible to achieve the same padding before the next Section as if there was no conditional footer set on the Section. 
