@@ -22,7 +22,7 @@ Furthermore, if there is both a conditional view within a Section (in this repos
 2. Follow steps as per above. Replacing the text content of the Text in the GoodListView Section footer shows the content contionally as desired, and animates the changes to the rest of the Section smoothly. However, an issue remains that when not in edit mode there is a larger padding after the GoodListView section than there is between other sections in the content. Is there a work-around for this symptom? 
 
 ## What is expected to happen:
-There is a mechanism to have conditional views within a Section, and to have a conditional footer after a Section. When toggling these views on and off on entering and existing edit mode, the animation should be smooth and the app should not crash. When the footer is not visible, it should be possible to achieve the same padding before the next Section as if there was no conditional footer set on the Section. 
+There is a mechanism to have conditional views within a Section, and to have a conditional footer after a Section. When toggling these views on and off on entering and exiting edit mode, the animation should be smooth and the app should not crash. When the footer is not visible, it should be possible to achieve the same padding before the next Section as if there was no conditional footer set on the Section. 
 
 ## What actually happened:
 As per the steps to reproduce, if there is a conditional view within a Section and also a conditional footer, the app crashes in iOS 16.2 beta 2.
