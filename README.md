@@ -8,23 +8,23 @@ The sample project demonstrates that setting such views conditionally results in
 
 Furthermore, if there is both a conditional view within a Section (in this repository, the AddItemRow views) _plus_ there is a conditionally displayed footer on the Section, in iOS 16.2 beta 2 toggling between these states causes an application crash from within a SwiftUI-created collection view when the conditional views are removed from the view. (This crash has been produced on an iPhone XR running iOS 16.2 beta 2. As there is no iOS 16.2 simulator available to third party developers, it is not known if the crash also occurs in the iOS simulator.)
 
-Steps to reproduce the issue:
+## Steps to reproduce the issue:
 1. In iOS 16.2 beta 2, launch the ConditionalFooter sample project
 2. Click on Edit to enter edit mode.
 3. Click on Done to exit edit mode. The app will crash.
 
-Alternative code example:
+### Alternative code example:
 1. In the ContentView, comment out BadListView and uncomment AnotherBadListView.
 2. Follow steps as per above. Replacing the conditional view with an EmptyView() when not present does not change the observed behavior.
 
-Partial fix that also has a problem:
+### Partial fix that also has a problem:
 1. In the ContentView, comment out both BadListView and AnotherBadListView.
 2. Follow steps as per above. Replacing the text content of the Text in the GoodListView Section footer shows the content contionally as desired, and animates the changes to the rest of the Section smoothly. However, an issue remains that when not in edit mode there is a larger padding after the GoodListView section than there is between other sections in the content. Is there a work-around for this symptom? 
 
-What is expected to happen:
+## What is expected to happen:
 There is a mechanism to have conditional views within a Section, and to have a conditional footer after a Section. When toggling these views on and off on entering and existing edit mode, the animation should be smooth and the app should not crash. When the footer is not visible, it should be possible to achieve the same padding before the next Section as if there was no conditional footer set on the Section. 
 
-What actually happened:
+## What actually happened:
 As per the steps to reproduce, if there is a conditional view within a Section and also a conditional footer, the app crashes in iOS 16.2 beta 2.
 
 Before iOS 16.2 beta 2, including in iOS 16.2 beta 1, the app would not crash but in all versions the animations are not smooth between states if these conditional views are present.
